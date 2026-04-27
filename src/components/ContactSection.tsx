@@ -2,7 +2,17 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Github, Linkedin, Send, MapPin, Instagram, CheckCircle2, AlertCircle } from "lucide-react";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  Send,
+  MapPin,
+  Instagram,
+  CheckCircle2,
+  AlertCircle,
+  Phone,
+} from "lucide-react";
 import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,9 +24,14 @@ const contactSchema = z.object({
   phone: z
     .string()
     .optional()
-    .refine((val) => !val || /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/.test(val), {
-      message: "Please enter a valid phone number",
-    }),
+    .refine(
+      (val) =>
+        !val ||
+        /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/.test(val),
+      {
+        message: "Please enter a valid phone number",
+      },
+    ),
   subject: z.string().min(3, "Subject must be at least 3 characters"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
@@ -114,6 +129,24 @@ export default function ContactSection() {
 
               <div className="flex items-center gap-4 group">
                 <div className="p-4 glass rounded-2xl text-primary group-hover:scale-110 transition-transform duration-300">
+                  <Phone className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-muted-foreground text-xs font-semibold uppercase tracking-widest mb-1">
+                    Phone
+                  </p>
+                  <a
+                    href="tel:+919140764560"
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                    aria-label="Call +91 9140764560"
+                  >
+                    +91 9140764560
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 group">
+                <div className="p-4 glass rounded-2xl text-primary group-hover:scale-110 transition-transform duration-300">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
@@ -188,8 +221,8 @@ export default function ContactSection() {
                       errors.name
                         ? "border-red-500/50 focus:border-red-500 bg-red-500/5"
                         : touchedFields.name
-                        ? "border-green-500/30 focus:border-green-500/50"
-                        : "border-white/10 focus:border-primary/50"
+                          ? "border-green-500/30 focus:border-green-500/50"
+                          : "border-white/10 focus:border-primary/50"
                     }`}
                     placeholder="Your name"
                   />
@@ -222,8 +255,8 @@ export default function ContactSection() {
                       errors.email
                         ? "border-red-500/50 focus:border-red-500 bg-red-500/5"
                         : touchedFields.email
-                        ? "border-green-500/30 focus:border-green-500/50"
-                        : "border-white/10 focus:border-primary/50"
+                          ? "border-green-500/30 focus:border-green-500/50"
+                          : "border-white/10 focus:border-primary/50"
                     }`}
                     placeholder="hello@example.com"
                   />
@@ -244,7 +277,10 @@ export default function ContactSection() {
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-muted-foreground ml-1 flex justify-between">
                   <span>
-                    Phone <span className="text-[10px] opacity-50 font-normal">(Optional)</span>
+                    Phone{" "}
+                    <span className="text-[10px] opacity-50 font-normal">
+                      (Optional)
+                    </span>
                   </span>
                   {touchedFields.phone && !errors.phone && phoneValue && (
                     <CheckCircle2 className="w-4 h-4 text-green-500 animate-in fade-in zoom-in" />
@@ -258,8 +294,8 @@ export default function ContactSection() {
                       errors.phone
                         ? "border-red-500/50 focus:border-red-500 bg-red-500/5"
                         : touchedFields.phone && phoneValue
-                        ? "border-green-500/30 focus:border-green-500/50"
-                        : "border-white/10 focus:border-primary/50"
+                          ? "border-green-500/30 focus:border-green-500/50"
+                          : "border-white/10 focus:border-primary/50"
                     }`}
                     placeholder="+1 (555) 000-0000"
                   />
@@ -292,8 +328,8 @@ export default function ContactSection() {
                       errors.subject
                         ? "border-red-500/50 focus:border-red-500 bg-red-500/5"
                         : touchedFields.subject
-                        ? "border-green-500/30 focus:border-green-500/50"
-                        : "border-white/10 focus:border-primary/50"
+                          ? "border-green-500/30 focus:border-green-500/50"
+                          : "border-white/10 focus:border-primary/50"
                     }`}
                     placeholder="What's this about?"
                   />
@@ -327,8 +363,8 @@ export default function ContactSection() {
                     errors.message
                       ? "border-red-500/50 focus:border-red-500 bg-red-500/5"
                       : touchedFields.message
-                      ? "border-green-500/30 focus:border-green-500/50"
-                      : "border-white/10 focus:border-primary/50"
+                        ? "border-green-500/30 focus:border-green-500/50"
+                        : "border-white/10 focus:border-primary/50"
                   }`}
                   placeholder="Tell me about your project..."
                 />
