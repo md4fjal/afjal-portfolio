@@ -77,7 +77,7 @@ export default function HeroSection() {
     <section
       id="home"
       ref={heroRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden py-20"
     >
       <div className="absolute inset-0 -z-10">
         <div className="blob absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-[80px]" />
