@@ -173,7 +173,10 @@ export default function HeroSection() {
             <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </button>
 
-          <button className="w-full sm:w-auto px-8 py-4 glass text-foreground rounded-full font-semibold hover:bg-secondary/20 transition-all border border-border">
+          <button 
+            onClick={() => scrollToSection("contact")}
+            className="w-full sm:w-auto px-8 py-4 glass text-foreground rounded-full font-semibold hover:bg-secondary/20 transition-all border border-border"
+          >
             Let's Talk
           </button>
         </div>
