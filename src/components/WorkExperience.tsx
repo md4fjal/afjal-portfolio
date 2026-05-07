@@ -18,53 +18,56 @@ import {
 export default function WorkExperience() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    const timeout = setTimeout(() => {
-      const cards = gsap.utils.toArray(".exp-card");
-      cards.forEach((card: any, i: number) => {
-        gsap.fromTo(
-          card,
-          { 
-            opacity: 0, 
-            x: i % 2 === 0 ? -50 : 50,
-            filter: "blur(10px)"
-          },
-          {
-            opacity: 1,
-            x: 0,
-            filter: "blur(0px)",
-            duration: 1,
-            ease: "expo.out",
-            scrollTrigger: {
-              trigger: card,
-              start: "top bottom",
-              toggleActions: "play none none reverse",
+  useGSAP(
+    () => {
+      const timeout = setTimeout(() => {
+        const cards = gsap.utils.toArray(".exp-card");
+        cards.forEach((card: any, i: number) => {
+          gsap.fromTo(
+            card,
+            {
+              opacity: 0,
+              x: i % 2 === 0 ? -50 : 50,
+              filter: "blur(10px)",
             },
-            clearProps: "all"
-          }
-        );
-      });
+            {
+              opacity: 1,
+              x: 0,
+              filter: "blur(0px)",
+              duration: 1,
+              ease: "expo.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top bottom",
+                toggleActions: "play none none reverse",
+              },
+              clearProps: "all",
+            },
+          );
+        });
 
-      // Animate the timeline line
-      gsap.fromTo(
-        ".timeline-line",
-        { scaleY: 0 },
-        {
-          scaleY: 1,
-          duration: 2,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".timeline-container",
-            start: "top 80%",
-            end: "bottom 20%",
-            scrub: true,
+        // Animate the timeline line
+        gsap.fromTo(
+          ".timeline-line",
+          { scaleY: 0 },
+          {
+            scaleY: 1,
+            duration: 2,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".timeline-container",
+              start: "top 80%",
+              end: "bottom 20%",
+              scrub: true,
+            },
           },
-        }
-      );
-    }, 100);
+        );
+      }, 100);
 
-    return () => clearTimeout(timeout);
-  }, { scope: containerRef });
+      return () => clearTimeout(timeout);
+    },
+    { scope: containerRef },
+  );
 
   const experiences = [
     {
@@ -109,8 +112,8 @@ export default function WorkExperience() {
           Work <span className="text-gradient">Journey</span>
         </h2>
         <p className="text-center md:text-left text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-          A timeline of my professional growth, featuring impactful projects 
-          and contributions to the tech ecosystem.
+          A timeline of my professional growth, featuring impactful projects and
+          contributions to the tech ecosystem.
         </p>
       </div>
 
@@ -120,8 +123,8 @@ export default function WorkExperience() {
         <div className="absolute left-5 md:left-1/2 top-0 bottom-0 w-[2px] bg-white/5 hidden md:block" />
 
         {experiences.map((exp, index) => (
-          <div 
-            key={index} 
+          <div
+            key={index}
             className={`exp-card relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group`}
           >
             {/* Timeline dot */}
@@ -151,7 +154,10 @@ export default function WorkExperience() {
 
                 <ul className="space-y-4">
                   {exp.description.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-muted-foreground text-base leading-relaxed group-hover:text-foreground/80 transition-colors">
+                    <li
+                      key={i}
+                      className="flex items-start gap-4 text-muted-foreground text-base leading-relaxed group-hover:text-foreground/80 transition-colors"
+                    >
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0" />
                       <span>{item}</span>
                     </li>
@@ -160,7 +166,7 @@ export default function WorkExperience() {
 
                 <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
                   {exp.skills.map((skill) => (
-                    <span 
+                    <span
                       key={skill}
                       className="px-3 py-1 text-[10px] font-black uppercase tracking-tighter glass rounded-lg border border-border text-muted-foreground group-hover:text-primary transition-colors"
                     >

@@ -90,8 +90,8 @@ export default function FloatingButtons() {
         onClick={scrollToTop}
         aria-label="Move to top"
         style={{ opacity: 0, pointerEvents: "none" }}
-        className="pointer-events-auto p-4 glass-dark border border-border text-white rounded-full shadow-2xl 
-          hover:bg-white/10 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center"
+        className="pointer-events-auto p-4 glass-dark border border-border text-foreground rounded-full shadow-2xl 
+          hover:bg-black/5 dark:hover:bg-white/10 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center"
       >
         <ArrowUp className="w-6 h-6" />
       </button>
