@@ -164,7 +164,7 @@ export default function Projects() {
                         href={project.links.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 glass rounded-full hover:bg-white/10 hover:scale-110 transition-all duration-300"
+                        className="p-3 glass rounded-full hover:bg-black/5 dark:hover:bg-white/10 hover:scale-110 transition-all duration-300"
                         title="GitHub Repository"
                       >
                         <Github className="w-5 h-5" />
@@ -175,7 +175,7 @@ export default function Projects() {
                         href={project.links.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 glass rounded-full hover:bg-white/10 hover:scale-110 transition-all duration-300"
+                        className="p-3 glass rounded-full hover:bg-black/5 dark:hover:bg-white/10 hover:scale-110 transition-all duration-300"
                         title="Live Preview"
                       >
                         <ExternalLink className="w-5 h-5" />
